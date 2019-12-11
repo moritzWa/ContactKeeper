@@ -5,13 +5,20 @@ import Home from "./components/Pages/Home"
 import About from "./components/Pages/About"
 import Register from "./components/auth/Register"
 import Login from "./components/auth/Login"
+import Alerts from "./components/layout/Alerts"
+import PrivateRoute from "./components/routing/PrivateRoute"
+
+import setAuthToken from "./utils/setAuthToken"
 
 import ContactState from "./context/contact/ContactState.js"
 import AuthState from "./context/auth/AuthState.js"
 import AlertState from "./context/alert/AlertState.js"
-import Alerts from "./components/layout/Alerts"
 
 import "./App.css"
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token)
+}
 
 const App = () => {
   return (
@@ -24,7 +31,7 @@ const App = () => {
               <div className="container">
                 <Alerts />
                 <Switch>
-                  <Route exact path="/" component={Home} />
+                  <PrivateRoute exact path="/" component={Home} />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />

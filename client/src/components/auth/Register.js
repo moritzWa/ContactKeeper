@@ -3,19 +3,23 @@ import AlertContext from "../../context/alert/alertContext.js"
 import AuthContext from "../../context/auth/authContext.js"
 import Alerts from "../../components/layout/Alerts"
 
-const Register = () => {
+const Register = props => {
   const alertContext = useContext(AlertContext)
   const authContext = useContext(AuthContext)
 
   const { setAlert } = alertContext
-  const { register, error, clearErrors } = authContext
+  const { register, error, clearErrors, isAuthenticated } = authContext
 
   useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push("/")
+    }
     if (error === "User already exists") {
       setAlert(error, "danger")
       clearErrors()
     }
-  }, [error])
+    //eslint-disaple-next-line
+  }, [error, isAuthenticated, props.history])
 
   const [user, setUser] = useState({
     name: "",
