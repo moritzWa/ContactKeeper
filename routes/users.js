@@ -10,7 +10,7 @@ const { check, validationResult } = require("express-validator")
 const User = require("../models/User")
 
 //signature for each route
-//  @route  POST api/user
+//  @route  POST api/users
 //  @desc   Register a user
 //  @access Public
 
