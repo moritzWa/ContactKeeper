@@ -26,7 +26,7 @@ const App = () => {
       <AuthState>
         <ContactState>
           <Router>
-            <Fragment className="App">
+            <Fragment>
               <Navbar />
               <div className="container">
                 <Alerts />

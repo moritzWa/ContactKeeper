@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import AlertContext from "../../context/alert/alertContext.js"
 import AuthContext from "../../context/auth/authContext.js"
-import Alerts from "../../components/layout/Alerts"
 
 const Register = props => {
   const alertContext = useContext(AlertContext)
@@ -18,7 +17,7 @@ const Register = props => {
       setAlert(error, "danger")
       clearErrors()
     }
-    //eslint-disaple-next-line
+    //eslint-disable-next-line
   }, [error, isAuthenticated, props.history])
 
   const [user, setUser] = useState({

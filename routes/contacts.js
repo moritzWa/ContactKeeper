@@ -6,7 +6,7 @@ const { check, validationResult } = require("express-validator")
 const User = require("../models/User")
 const Contact = require("../models/Contact")
 
-//  @route  GETt api/contacts
+//  @route  GET api/contacts
 //  @desc   Get all of the contacts from one user
 //  @access Private
 router.get("/", auth, async (req, res) => {
@@ -15,7 +15,6 @@ router.get("/", auth, async (req, res) => {
     const contacts = await Contact.find({ user: req.user.id }).sort({
       date: -1
     })
-    res.json(contacts)
   } catch (error) {
     console.log(err.message)
     res.status(500).send("Server Error")

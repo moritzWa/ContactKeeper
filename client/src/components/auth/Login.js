@@ -22,7 +22,7 @@ const Login = props => {
       setAlert(error, "danger")
       clearErrors()
     }
-    //eslint-disaple-next-line
+    //eslint-disable-next-line
   }, [error, isAuthenticated, props.history])
 
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value })

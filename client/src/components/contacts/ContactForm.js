@@ -1,16 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import ContactContext from "../../context/contact/contactContext"
 
-import * as Scroll from "react-scroll"
-import {
-  Link,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller
-} from "react-scroll"
-
 const ContactForm = () => {
   const contactContext = useContext(ContactContext)
   const { addContact, updateContact, current, clearCurrent } = contactContext
@@ -20,12 +10,6 @@ const ContactForm = () => {
 
   const scrollToTop = () => {
     scroll.scrollToTop()
-  }
-  const emptyForm = {
-    name: "",
-    email: "",
-    phone: "",
-    type: "personal"
   }
 
   useEffect(() => {
@@ -40,6 +24,7 @@ const ContactForm = () => {
         type: "personal"
       })
     }
+    //eslint-disable-next-line
   }, [contactContext, current])
 
   const [contact, setContact] = useState({
